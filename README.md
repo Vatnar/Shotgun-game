@@ -3,7 +3,15 @@
 ### TODO
 - Gjør particle system finere
 - Lyder
-- animasjon for reload
+  - Reload
+  - Fire
+  - Jump
+  - Walk
+- Animasjoner
+  - reload
+  - shooting
+  - jumping
+  - walking
 - UI
--- shotgun shell count osv
+  - shotgun shell count osv
 
