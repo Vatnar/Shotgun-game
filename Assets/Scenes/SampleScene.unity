@@ -9443,7 +9443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe142242fab3afb46a14a2bf4bc39030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalShells: 2
+  totalShells: 3
   shootStrength: 1
   playerShotgun: {fileID: 668331961}
   crosshair: {fileID: 833221748}
