@@ -1,0 +1,4 @@
+repository "Shotgun Game@petervandersson@cloud"
+  path "/"
+    br "/main"
+    co "/main"
