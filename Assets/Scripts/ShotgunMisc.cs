@@ -2,20 +2,42 @@ using System;
 using UnityEngine;
 
 public class ShotgunMisc : MonoBehaviour {
-    private Animation animationComponent;
-    private ParticleSystem particleSystemComponent;
-    private void Awake() {
-        animationComponent = GetComponent<Animation>();
-        particleSystemComponent = GetComponent<ParticleSystem>();
-    }
+    [SerializeField] private Animation animationComponent;
+    [SerializeField] private ParticleSystem particleSystemComponent;
+    
     public void AnimatePoof() {
-        ParticleSystem.MainModule mainModule = particleSystemComponent.main;
-        Vector3 initialVelocity = transform.forward * 10f;
-        mainModule.startSpeed = new ParticleSystem.MinMaxCurve(0f, initialVelocity.magnitude);
-        animationComponent.Rewind();
-        animationComponent.Play();
-        particleSystemComponent.Simulate(1.5f);
+        ParticleSystem particleSystemInstance = Instantiate(particleSystemComponent);
+        Animation animationInstance = Instantiate(animationComponent);
+        RunParticleSystem(particleSystemInstance, animationInstance);
+    }
+    
+    
+    private void RunParticleSystem(ParticleSystem particles, Animation animations)
+    {
+        ParticleSystem.MainModule mainModule = particles.main;
+        particles.transform.position = particleSystemComponent.transform.position;
+        
 
+        particles.transform.rotation = Quaternion.LookRotation(transform.parent.right);
+
+
+        mainModule.startSpeed = transform.parent.right.magnitude;
+        animations.Rewind();
+        Time.timeScale = 1f;
+        animations.Play();
+        particles.Play();
+
+        float cleanupDelay = mainModule.duration + 0.5f; 
+
+        StartCoroutine(DestroyAfterDelay(particles.gameObject, cleanupDelay));
+        StartCoroutine(DestroyAfterDelay(animations.gameObject, cleanupDelay));
+    }
+
+
+    private System.Collections.IEnumerator DestroyAfterDelay(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(obj);
     }
     public void PlayReloadSound() { 
         throw new NotImplementedException();
