@@ -984,6 +984,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2653562121969761949, guid: 91f13573079f7344684292ed0e348df1, type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692752954958150648, guid: 91f13573079f7344684292ed0e348df1, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692752954958150648, guid: 91f13573079f7344684292ed0e348df1, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7600466719036348082, guid: 91f13573079f7344684292ed0e348df1, type: 3}
       propertyPath: crosshair
       value: 
