@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 684915601582892183}
   - component: {fileID: -1335006864703936233}
-  - component: {fileID: -1450369663834504228}
+  - component: {fileID: 7590871045979020363}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Ground
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-1450369663834504228
+--- !u!61 &7590871045979020363
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,5 +128,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.51, y: 1.35}
+  m_Size: {x: 2.8366666, y: 0.45}
   m_EdgeRadius: 0

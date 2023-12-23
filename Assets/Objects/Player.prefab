@@ -194,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 2610414035367126221}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.134, y: 0.239, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -243,7 +243,7 @@ Transform:
   m_GameObject: {fileID: 2700422161424201393}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0279, y: 1.23, z: 0}
+  m_LocalPosition: {x: -0.099, y: 1.043, z: 0}
   m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5265,7 +5265,7 @@ Transform:
   m_GameObject: {fileID: 6117281814954641631}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.121, y: 0.096, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.72, y: 0.72, z: 0.72}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -5353,7 +5353,7 @@ Transform:
   m_GameObject: {fileID: 8502431769117256337}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.33, y: 14.79, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5587,8 +5587,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.11082673, y: 0.52813053}
-  m_Size: {x: 0.8375459, y: 2.6632538}
+  m_Offset: {x: -0.016975015, y: 0.47965407}
+  m_Size: {x: 0.8639874, y: 2.7602067}
   m_Direction: 0
 --- !u!114 &7600466719036348082
 MonoBehaviour:
@@ -5602,7 +5602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe142242fab3afb46a14a2bf4bc39030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalShells: 3
+  totalShells: 1
   shootStrength: 1
   playerShotgun: {fileID: 2610414035367126221}
   crosshair: {fileID: 0}
