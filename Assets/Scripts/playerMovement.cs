@@ -30,6 +30,11 @@ public class PlayerMovement : MonoBehaviour {
             
             return;
         }
+        if (other.gameObject.CompareTag("Wall")) {
+            isGrounded = true;
+
+            return;
+        }
         playerController.canReload= false;
     }
     private void OnCollisionExit2D(Collision2D other) {
