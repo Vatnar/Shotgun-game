@@ -15,10 +15,11 @@ public class PlayerMovement : MonoBehaviour {
     private float sign = 1;
     private bool isGrounded = true;
     private float gravityScale;
-    
+    private Vector3 initialPos;
     
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
+        initialPos = transform.position;
     }
     
     // check if on ground
@@ -34,6 +35,10 @@ public class PlayerMovement : MonoBehaviour {
             isGrounded = true;
 
             return;
+        }
+        if (other.gameObject.CompareTag("Death")) {
+            playerController.DropShotgun();
+            transform.position = initialPos;
         }
         playerController.canReload= false;
     }

@@ -42,11 +42,21 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player picked up the shotgun!");
         EnableShotgun();
     }
+    public void DropShotgun() {
+        if (!hasShotgun) return;
+        Debug.Log(("Player dropped shotgun"));
+        DisableShotgun();
+        canReload = false;
+    }
 
     private void EnableShotgun()
     {
         playerShotgun.SetActive(true);
         hasShotgun = true;
+    }
+    private void DisableShotgun() {
+        playerShotgun.SetActive(false);
+        hasShotgun = false;
     }
 
     private void RotateShotgunOnMouseMove()
