@@ -35,9 +35,8 @@ public class PlayerController : MonoBehaviour
         previousMousePosition = GetMouseWorldPosition();
     }
 
-    public void PickupShotgun()
-    {
-        if (hasShotgun) return;
+    public void PickupShotgun() {
+        if (hasShotgun) shootStrength *= 2;
         
         Debug.Log("Player picked up the shotgun!");
         EnableShotgun();
