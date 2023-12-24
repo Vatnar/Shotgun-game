@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void PickupShotgun() {
-        if (hasShotgun) shootStrength *= 2;
+        if (hasShotgun) shootStrength += 50000;
         
         Debug.Log("Player picked up the shotgun!");
         EnableShotgun();
