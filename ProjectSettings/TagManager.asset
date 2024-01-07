@@ -47,6 +47,9 @@ TagManager:
   - name: BackBackground
     uniqueID: 3318740609
     locked: 0
+  - name: noLight
+    uniqueID: 3650964239
+    locked: 0
   - name: Background
     uniqueID: 3689712507
     locked: 0
