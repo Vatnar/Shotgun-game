@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         canShoot = false;
         shotgunMisc.PlayReloadSound();
         //shotgunMisc.playReloadAnimation();
-        yield return new WaitForSeconds(2f); // replace delayInSeconds with the desired delay
+        yield return new WaitForSeconds(2f); 
         currentShells = totalShells;
         shootCounter.SetNumber(totalShells);
         canShoot = true;
