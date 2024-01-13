@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,8 +16,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 previousMousePosition;
     private Vector2 mouseDir;
     private bool hasShotgun;
+    private bool canShoot = false;
     private int currentShells = 5;
-    public bool canReload = true;
+    public bool canReload = false;
     
     private void OnEnable()
     {
@@ -37,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     public void PickupShotgun() {
         if (hasShotgun) shootStrength += 50000;
-        
+       
         Debug.Log("Player picked up the shotgun!");
         EnableShotgun();
     }
@@ -45,17 +47,21 @@ public class PlayerController : MonoBehaviour
         if (!hasShotgun) return;
         Debug.Log(("Player dropped shotgun"));
         DisableShotgun();
-        canReload = false;
+       
     }
 
     private void EnableShotgun()
     {
         playerShotgun.SetActive(true);
         hasShotgun = true;
+        canShoot = true;
+        canReload = true;
     }
     private void DisableShotgun() {
         playerShotgun.SetActive(false);
         hasShotgun = false;
+        canShoot = false;
+        canReload = false;
     }
 
     private void RotateShotgunOnMouseMove()
@@ -90,12 +96,21 @@ public class PlayerController : MonoBehaviour
     }
     public void OnReload(InputAction.CallbackContext ctx) {
         
-        if (ctx.performed && canReload) {
-                currentShells = totalShells;
-                shootCounter.SetNumber(totalShells);
-                //shotgunMisc.PlayReloadSound();
+        if (ctx.performed && (canReload && (currentShells!= totalShells))) {
+            StartCoroutine(ReloadWithDelay());
         }
     } 
+    IEnumerator ReloadWithDelay() {
+        canReload = false;
+        canShoot = false;
+        shotgunMisc.PlayReloadSound();
+        //shotgunMisc.playReloadAnimation();
+        yield return new WaitForSeconds(2f); // replace delayInSeconds with the desired delay
+        currentShells = totalShells;
+        shootCounter.SetNumber(totalShells);
+        canShoot = true;
+
+    }
     public void OnFire(InputAction.CallbackContext ctx)
     {
         if (!hasShotgun) return;
@@ -105,14 +120,14 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void Shoot() {
-
+        if (!canShoot) return;
         if (currentShells > 0) {
             mouseDir = mouseDir.normalized;
             rb.AddForce(-mouseDir * shootStrength);
             currentShells--;
             shootCounter.DecreaseNumber();
             shotgunMisc.AnimatePoof();
-            //shotgunMisc.PlayShotSound();
+            shotgunMisc.PlayShotSound();
         }
         Debug.Log("current shells: " + currentShells);
     }
