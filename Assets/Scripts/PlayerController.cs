@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 previousMousePosition;
     private Vector2 mouseDir;
     private bool hasShotgun;
-    private bool canShoot = false;
+    private bool canShoot;
     private int currentShells = 5;
-    public bool canReload = false;
+    public bool canReload;
     
     private void OnEnable()
     {

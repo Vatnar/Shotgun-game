@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class ShotgunMisc : MonoBehaviour {
     //[SerializeField] private Animation animationComponent;
@@ -10,8 +8,9 @@ public class ShotgunMisc : MonoBehaviour {
     
     private ParticleSystem currInstance;
     public void AnimatePoof() {
-        currInstance = Instantiate(particleSystemComponent, particleSystemComponent.transform.position,
-            particleSystemComponent.transform.rotation);
+        Transform parTransform = particleSystemComponent.transform;
+        currInstance = Instantiate(particleSystemComponent, parTransform.position,
+            parTransform.rotation);
         Debug.Log("playing instantiated system");
         currInstance.Play();
         StartCoroutine(DestroyAfterDelay(currInstance, 3));
