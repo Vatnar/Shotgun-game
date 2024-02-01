@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class followPLayer : MonoBehaviour {
+public class FollowPlayer : MonoBehaviour {
     [SerializeField] private Transform camTransform;
     private Vector3 position;
     

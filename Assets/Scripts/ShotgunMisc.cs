@@ -23,6 +23,7 @@ public class ShotgunMisc : MonoBehaviour {
         Destroy(obj.gameObject);
     }
     public void PlayReloadSound() {
+        reloadSource.time = 1.5f;
         reloadSource.Play();
     }
     public void PlayShotSound(){
