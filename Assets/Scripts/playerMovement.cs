@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour {
     private bool isGrounded = true;
     private float gravityScale;
     private Vector3 initialPos;
-    
+
+ 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         initialPos = transform.position;
@@ -37,7 +38,7 @@ public class PlayerMovement : MonoBehaviour {
             return;
         }
         if (other.gameObject.CompareTag("Death")) {
-            playerController.DropShotgun();
+            playerController.DropWeapon();
             transform.position = initialPos;
         }
         playerController.canReload= false;

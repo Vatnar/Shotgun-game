@@ -1,17 +1,15 @@
 using UnityEngine;
-
-public class ShotgunMisc : MonoBehaviour {
+public class WeaponMisc : MonoBehaviour {
     //[SerializeField] private Animation animationComponent;
     [SerializeField] private ParticleSystem particleSystemComponent;
     [SerializeField] private AudioSource shotSource;
     [SerializeField] private AudioSource reloadSource;
     
     private ParticleSystem currInstance;
-    public void AnimatePoof() {
+    public void AnimatePoof(SOWeapon weapon) {
         Transform parTransform = particleSystemComponent.transform;
-        currInstance = Instantiate(particleSystemComponent, parTransform.position,
+        currInstance = Instantiate(weapon.particleSystem, parTransform.position,
             parTransform.rotation);
-        Debug.Log("playing instantiated system");
         currInstance.Play();
         StartCoroutine(DestroyAfterDelay(currInstance, 3));
     }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a79d91b8f10df34d9b9441967eeb0e3, type: 3}
+  m_Name: Shotgun
+  m_EditorClassIdentifier: 
+  texture: {fileID: 2800000, guid: a637f73349d5cb140a3dce8c4953081e, type: 3}
+  particleSystem: {fileID: 9181636289231882806, guid: f5b87d07b7a5e894b9be2a01e31325eb, type: 3}
+  shootSound: {fileID: 8300000, guid: 4f4edb78b2ee83a46afc52eef052e7ea, type: 3}
+  reloadSound: {fileID: 8300000, guid: 623d76c5ce777994db19e7f2b3984654, type: 3}
+  shotDamage: 50
+  totalAmmo: 3
+  shootStrength: 1

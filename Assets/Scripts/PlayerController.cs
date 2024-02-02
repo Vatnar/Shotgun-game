@@ -1,17 +1,18 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
-public class PlayerController : MonoBehaviour
-{
-    [SerializeField] private int totalShells = 5;
-    [SerializeField] private float shootStrength;
+public class PlayerController : MonoBehaviour {
+    [SerializeField] private SOWeapon startingWeapon = default;
+    private SOWeapon currentWeapon;
     
     [SerializeField] private GameObject playerShotgun;
     [SerializeField] private Crosshair crosshair;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private DynNumber shootCounter;
-    [SerializeField] private ShotgunMisc shotgunMisc;
+    [SerializeField] private WeaponMisc weaponMisc;
+    
     private Rigidbody2D rb;
     private Vector3 previousMousePosition;
     private Vector2 mouseDir;
@@ -22,49 +23,50 @@ public class PlayerController : MonoBehaviour
     
     private void OnEnable()
     {
-        InputSystem.onAfterUpdate += RotateShotgunOnMouseMove;
+        InputSystem.onAfterUpdate += RotateWeaponOnMouseMove;
     }
 
     private void OnDisable()
     {
-        InputSystem.onAfterUpdate -= RotateShotgunOnMouseMove;
+        InputSystem.onAfterUpdate -= RotateWeaponOnMouseMove;
     }
 
     private void Awake() {
-        shootStrength *= 50000;
         rb = GetComponent<Rigidbody2D>();
         playerShotgun.SetActive(false);
         previousMousePosition = GetMouseWorldPosition();
+        InitializeWeapon(startingWeapon);
     }
-
-    public void PickupShotgun() {
-        if (hasShotgun) shootStrength += 50000;
+    private void InitializeWeapon(SOWeapon weapon) {
+        currentWeapon = Instantiate(weapon);
+    }
+    public void PickupWeapon() {
        
         Debug.Log("Player picked up the shotgun!");
-        EnableShotgun();
+        EnableWeapon();
     }
-    public void DropShotgun() {
+    public void DropWeapon() {
         if (!hasShotgun) return;
         Debug.Log(("Player dropped shotgun"));
-        DisableShotgun();
+        DisableWeapon();
        
     }
 
-    private void EnableShotgun()
+    private void EnableWeapon()
     {
         playerShotgun.SetActive(true);
         hasShotgun = true;
         canShoot = true;
         canReload = true;
     }
-    private void DisableShotgun() {
+    private void DisableWeapon() {
         playerShotgun.SetActive(false);
         hasShotgun = false;
         canShoot = false;
         canReload = false;
     }
 
-    private void RotateShotgunOnMouseMove()
+    private void RotateWeaponOnMouseMove()
     {
         Mouse mouse = Mouse.current;
 
@@ -96,18 +98,18 @@ public class PlayerController : MonoBehaviour
     }
     public void OnReload(InputAction.CallbackContext ctx) {
         
-        if (ctx.performed && (canReload && (currentShells!= totalShells))) {
+        if (ctx.performed && (canReload && (currentShells != currentWeapon.totalAmmo))) {
             StartCoroutine(ReloadWithDelay());
         }
     } 
     IEnumerator ReloadWithDelay() {
         canReload = false;
         canShoot = false;
-        shotgunMisc.PlayReloadSound();
+        weaponMisc.PlayReloadSound();
         //shotgunMisc.playReloadAnimation();
         yield return new WaitForSeconds(.5f); 
-        currentShells = totalShells;
-        shootCounter.SetNumber(totalShells);
+        currentShells = currentWeapon.totalAmmo;
+        shootCounter.SetNumber(currentWeapon.totalAmmo);
         canShoot = true;
 
     }
@@ -116,20 +118,16 @@ public class PlayerController : MonoBehaviour
         if (!hasShotgun) return;
 
         if (ctx.performed) {
-            Shoot();
+            if (!canShoot) return;
+            if (currentShells > 0) {
+                mouseDir = mouseDir.normalized;
+                rb.AddForce(-mouseDir * currentWeapon.shootStrength);
+                currentShells--;
+                shootCounter.DecreaseNumber();
+                weaponMisc.AnimatePoof(default);
+                weaponMisc.PlayShotSound();
+            }
         }
-    }
-    private void Shoot() {
-        if (!canShoot) return;
-        if (currentShells > 0) {
-            mouseDir = mouseDir.normalized;
-            rb.AddForce(-mouseDir * shootStrength);
-            currentShells--;
-            shootCounter.DecreaseNumber();
-            shotgunMisc.AnimatePoof();
-            shotgunMisc.PlayShotSound();
-        }
-        Debug.Log("current shells: " + currentShells);
     }
     private void AddShells(int shells) {
         currentShells += shells;

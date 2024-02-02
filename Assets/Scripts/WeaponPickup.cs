@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShotgunPickup : MonoBehaviour
+public class WeaponPickup : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other) {
 
@@ -13,7 +13,7 @@ public class ShotgunPickup : MonoBehaviour
             return;
         }
         
-        playerController.PickupShotgun();
+        playerController.PickupWeapon();
         
         Destroy(gameObject);
     }
