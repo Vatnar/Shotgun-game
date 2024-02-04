@@ -7226,6 +7226,30 @@ PrefabInstance:
       propertyPath: shootCounter
       value: 
       objectReference: {fileID: 654170125}
+    - target: {fileID: 1086623559782922097, guid: 22981c4110758054284deb57f5415f20, type: 3}
+      propertyPath: references.crosshair
+      value: 
+      objectReference: {fileID: 833221748}
+    - target: {fileID: 1086623559782922097, guid: 22981c4110758054284deb57f5415f20, type: 3}
+      propertyPath: references.weaponMisc
+      value: 
+      objectReference: {fileID: 1756392970}
+    - target: {fileID: 1086623559782922097, guid: 22981c4110758054284deb57f5415f20, type: 3}
+      propertyPath: references.lineRenderer
+      value: 
+      objectReference: {fileID: 245907955}
+    - target: {fileID: 1086623559782922097, guid: 22981c4110758054284deb57f5415f20, type: 3}
+      propertyPath: references.shootCounter
+      value: 
+      objectReference: {fileID: 654170125}
+    - target: {fileID: 1086623559782922097, guid: 22981c4110758054284deb57f5415f20, type: 3}
+      propertyPath: references.playerShotgun
+      value: 
+      objectReference: {fileID: 1756392971}
+    - target: {fileID: 1086623559782922097, guid: 22981c4110758054284deb57f5415f20, type: 3}
+      propertyPath: references.startingWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: cae7a221fe29ac742b11d1d3b77fd2c2, type: 2}
     - target: {fileID: 8197983358973743475, guid: 22981c4110758054284deb57f5415f20, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7275,6 +7299,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22981c4110758054284deb57f5415f20, type: 3}
+--- !u!114 &1756392970 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5502541845396793731, guid: 22981c4110758054284deb57f5415f20, type: 3}
+  m_PrefabInstance: {fileID: 1756392969}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756392971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21bc4a6a142033147a3d383d861493cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1756392971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 438647847315736058, guid: 22981c4110758054284deb57f5415f20, type: 3}
+  m_PrefabInstance: {fileID: 1756392969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1800867828
 PrefabInstance:
   m_ObjectHideFlags: 0
