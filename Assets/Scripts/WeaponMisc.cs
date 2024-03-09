@@ -12,9 +12,19 @@ public class WeaponMisc : MonoBehaviour {
     /// <summary>
     /// Instantiates and plays the particle system for the weapon, then destroys it after a delay.
     /// </summary>
-    public void AnimatePoof(SOWeapon weapon) {
+    public void AnimatePoof(int index, PlayerController.RefStruct references) {
+        var weapon = references.currentWeapon;
+        switch (index) {
+            case 0:
+                particleSystemComponent = references.playerShotgun.GetComponent<ParticleSystem>();
+                break;
+            case 1:
+                particleSystemComponent = references.crosshair.GetComponent<ParticleSystem>();
+                break;
+
+        }
         var parTransform = particleSystemComponent.transform;
-        CurrInstance = Instantiate(weapon.particleSystem, parTransform.position, parTransform.rotation);
+       // CurrInstance = Instantiate(weapon.particleSystem, parTransform.position, parTransform.rotation);
         CurrInstance.Play();
         StartCoroutine(DestroyAfterDelay(CurrInstance, 3));
     }

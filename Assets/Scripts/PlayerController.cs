@@ -11,13 +11,13 @@ public class PlayerController : MonoBehaviour {
         public LineRenderer lineRenderer;
         public DynNumber shootCounter;
         public WeaponMisc weaponMisc;
-        public SOWeapon startingWeapon;
+        public int currentWeapon;
     }
 
-    [SerializeField] RefStruct references;
+    [SerializeField] public RefStruct references;
 
 
-    private SOWeapon CurrentWeapon;
+    private int CurrentWeapon;
     private Rigidbody2D Rb;
     private Vector3 PreviousMousePosition;
     private Vector2 MouseDir;
@@ -45,20 +45,17 @@ public class PlayerController : MonoBehaviour {
     /// Awake is called when the script instance is being loaded.
     /// </summary>
     private void Awake() {
-
-        references = new RefStruct {
-            startingWeapon = default,
-        };
         Rb = GetComponent<Rigidbody2D>();
         references.playerShotgun.SetActive(false);
         PreviousMousePosition = GetMouseWorldPosition();
-        InitializeWeapon(references.startingWeapon);
+        InitializeWeapon(references.currentWeapon);
     }
     /// <summary>
     /// Initializes the weapon by instantiating the given SOWeapon.
     /// </summary>
-    private void InitializeWeapon(SOWeapon weapon) {
-        CurrentWeapon = Instantiate(weapon);
+    private void InitializeWeapon(int weapon) {
+        // do some operation to get data for model
+        //CurrentWeapon = Instantiate(weapon);
     }
     /// <summary>
     /// Picks up the weapon and enables it.
@@ -142,9 +139,9 @@ public class PlayerController : MonoBehaviour {
  /// <param name="ctx"> InputAction.CallbackContext, gives state of input</param>
     public void OnReload(InputAction.CallbackContext ctx) {
 
-        if (ctx.performed && (canReload && (CurrentShells != CurrentWeapon.totalAmmo))) {
-            StartCoroutine(ReloadWithDelay());
-        }
+       // if (ctx.performed && (canReload && (CurrentShells != CurrentWeapon.totalAmmo))) {
+         //   StartCoroutine(ReloadWithDelay());
+        //}
     }
 
     /// <summary>
@@ -156,8 +153,8 @@ public class PlayerController : MonoBehaviour {
         references.weaponMisc.PlayReloadSound();
         //shotgunMisc.playReloadAnimation();
         yield return new WaitForSeconds(.5f);
-        CurrentShells = CurrentWeapon.totalAmmo;
-        references.shootCounter.SetNumber(CurrentWeapon.totalAmmo);
+        //CurrentShells = CurrentWeapon.totalAmmo;
+        //references.shootCounter.SetNumber(CurrentWeapon.totalAmmo);
         CanShoot = true;
 
     }
@@ -185,10 +182,10 @@ public class PlayerController : MonoBehaviour {
             return;
         }
         MouseDir = MouseDir.normalized;
-        Rb.AddForce(-MouseDir * CurrentWeapon.shootStrength);
+        //Rb.AddForce(-MouseDir * CurrentWeapon.shootStrength);
         CurrentShells--;
         references.shootCounter.DecreaseNumber();
-        references.weaponMisc.AnimatePoof(default);
+        references.weaponMisc.AnimatePoof(0, references);
         references.weaponMisc.PlayShotSound();
     }
     /// <summary>
