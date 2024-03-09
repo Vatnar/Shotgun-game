@@ -20,8 +20,7 @@ public class WeaponPickup : MonoBehaviour
             Debug.LogError("No script PlayerController found");
             return;
         }
-
-        playerController.PickupWeapon();
+        playerController.PickupWeapon(int.Parse(gameObject.tag));
 
         Destroy(gameObject);
     }

@@ -60,9 +60,11 @@ public class PlayerController : MonoBehaviour {
     /// <summary>
     /// Picks up the weapon and enables it.
     /// </summary>
-    public void PickupWeapon() {
+    /// <param name="index"></param>
+    public void PickupWeapon(int index) {
 
-        Debug.Log("Player picked up the shotgun!");
+        Debug.Log("Player picked up weapon indexed 0");
+        references.currentWeapon = index;
         EnableWeapon();
     }
     /// <summary>
@@ -74,13 +76,17 @@ public class PlayerController : MonoBehaviour {
         }
         Debug.Log(("Player dropped shotgun"));
         DisableWeapon();
-
+        references.currentWeapon = -1; // Indicates no weapon is being held
     }
 /// <summary>
 /// Enables weapon model. Ticks HasShotgun, CanShoot and CanReload booleans
 /// </summary>
     private void EnableWeapon()
     {
+        // TODO Refactor this into WeaponMisc.cs
+        // references.currentWeapon is an index that has been set by the pickup call.
+        // Using the weaponmisc class and the GetWeaponByIndex method we can retrieve what gameobject to display
+        // same goes for disabling.
         references.playerShotgun.SetActive(true);
         HasShotgun = true;
         CanShoot = true;
@@ -90,6 +96,7 @@ public class PlayerController : MonoBehaviour {
 /// Disables weapon model. Un-ticks HasShotgun, CanShoot and CanReload booleans
 /// </summary>
     private void DisableWeapon() {
+    // TODO Refactor this into WeaponMisc.cs
         references.playerShotgun.SetActive(false);
         HasShotgun = false;
         CanShoot = false;
@@ -185,7 +192,7 @@ public class PlayerController : MonoBehaviour {
         //Rb.AddForce(-MouseDir * CurrentWeapon.shootStrength);
         CurrentShells--;
         references.shootCounter.DecreaseNumber();
-        references.weaponMisc.AnimatePoof(0, references);
+        references.weaponMisc.AnimatePoof(0);
         references.weaponMisc.PlayShotSound();
     }
     /// <summary>

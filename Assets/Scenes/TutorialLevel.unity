@@ -486,6 +486,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 684915601582892183, guid: 579752fcac4c7ce40ba006efbe069d1a, type: 3}
   m_PrefabInstance: {fileID: 37123247}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &486126575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 296853323884731112, guid: 22981c4110758054284deb57f5415f20, type: 3}
+  m_PrefabInstance: {fileID: 1756392969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &500041209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 684915601582892183, guid: 579752fcac4c7ce40ba006efbe069d1a, type: 3}
@@ -7057,6 +7062,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 684915601582892183, guid: 579752fcac4c7ce40ba006efbe069d1a, type: 3}
   m_PrefabInstance: {fileID: 852801685}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1623273954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8197983358973743475, guid: 22981c4110758054284deb57f5415f20, type: 3}
+  m_PrefabInstance: {fileID: 1756392969}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1623273960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623273954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21bc4a6a142033147a3d383d861493cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponsList:
+  - weaponName: Shotgun
+    strength: 1
+    shotSound: {fileID: 8300000, guid: 4f4edb78b2ee83a46afc52eef052e7ea, type: 3}
+    reloadSound: {fileID: 8300000, guid: 623d76c5ce777994db19e7f2b3984654, type: 3}
+    particleSystem: {fileID: 0}
+    sprite: {fileID: 21300000, guid: a637f73349d5cb140a3dce8c4953081e, type: 3}
 --- !u!4 &1668393550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 684915601582892183, guid: 579752fcac4c7ce40ba006efbe069d1a, type: 3}
@@ -7243,9 +7272,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 654170125}
     - target: {fileID: 1086623559782922097, guid: 22981c4110758054284deb57f5415f20, type: 3}
+      propertyPath: references.currentWeapon
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1086623559782922097, guid: 22981c4110758054284deb57f5415f20, type: 3}
       propertyPath: references.playerShotgun
       value: 
-      objectReference: {fileID: 1756392971}
+      objectReference: {fileID: 486126575}
     - target: {fileID: 1086623559782922097, guid: 22981c4110758054284deb57f5415f20, type: 3}
       propertyPath: references.startingWeapon
       value: 
@@ -7297,24 +7330,22 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8197983358973743475, guid: 22981c4110758054284deb57f5415f20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1623273960}
   m_SourcePrefab: {fileID: 100100000, guid: 22981c4110758054284deb57f5415f20, type: 3}
 --- !u!114 &1756392970 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5502541845396793731, guid: 22981c4110758054284deb57f5415f20, type: 3}
   m_PrefabInstance: {fileID: 1756392969}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756392971}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21bc4a6a142033147a3d383d861493cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1756392971 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 438647847315736058, guid: 22981c4110758054284deb57f5415f20, type: 3}
-  m_PrefabInstance: {fileID: 1756392969}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1800867828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7934,6 +7965,10 @@ PrefabInstance:
     - target: {fileID: 1183261967007351090, guid: d0fae973369d866428a7001edba59eee, type: 3}
       propertyPath: m_Name
       value: Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183261967007351090, guid: d0fae973369d866428a7001edba59eee, type: 3}
+      propertyPath: m_TagString
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2481394643582674248, guid: d0fae973369d866428a7001edba59eee, type: 3}
       propertyPath: m_LocalPosition.x

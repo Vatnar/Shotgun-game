@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Serialization;
+
 [System.Serializable]
 public class WeaponData
 {
@@ -6,6 +8,7 @@ public class WeaponData
     public int strength;
     public AudioClip shotSound;
     public AudioClip reloadSound;
-    public ParticleSystem poofParticle;
+    public ParticleSystem particleSystem;
     public Sprite sprite;
+    public WeaponData maxAmmo;
 }
