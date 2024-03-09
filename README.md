@@ -1,17 +1,22 @@
 # Shotgun-game
 
 ### TODO
-- Gjør particle system finere
-- Lyder
-  - Reload
-  - Fire
+- Weapon system
+  - switch to index based system
+  - refactor so everything goes through weaponmisc api
+  - Create WeaponData for weapons serialized
+  - ~~update animations and sounds to work with the new system~~
+- ~~Improve particle system~~
+- Audio
+  - ~~Reload~~
+  - ~~Fire~~
   - Jump
   - Walk
-- Animasjoner
+- Animations
   - reload
   - shooting
   - jumping
   - walking
 - UI
-  - shotgun shell count osv
+  - ~~shotgun shell count~~
 
