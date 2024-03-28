@@ -7084,7 +7084,7 @@ MonoBehaviour:
     strength: 1
     shotSound: {fileID: 8300000, guid: 4f4edb78b2ee83a46afc52eef052e7ea, type: 3}
     reloadSound: {fileID: 8300000, guid: 623d76c5ce777994db19e7f2b3984654, type: 3}
-    particleSystem: {fileID: 0}
+    particleSystem: {fileID: 9181636289231882806, guid: f5b87d07b7a5e894b9be2a01e31325eb, type: 3}
     sprite: {fileID: 21300000, guid: a637f73349d5cb140a3dce8c4953081e, type: 3}
 --- !u!4 &1668393550 stripped
 Transform:
@@ -7262,7 +7262,7 @@ PrefabInstance:
     - target: {fileID: 1086623559782922097, guid: 22981c4110758054284deb57f5415f20, type: 3}
       propertyPath: references.weaponMisc
       value: 
-      objectReference: {fileID: 1756392970}
+      objectReference: {fileID: 1623273960}
     - target: {fileID: 1086623559782922097, guid: 22981c4110758054284deb57f5415f20, type: 3}
       propertyPath: references.lineRenderer
       value: 
@@ -7335,17 +7335,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1623273960}
   m_SourcePrefab: {fileID: 100100000, guid: 22981c4110758054284deb57f5415f20, type: 3}
---- !u!114 &1756392970 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5502541845396793731, guid: 22981c4110758054284deb57f5415f20, type: 3}
-  m_PrefabInstance: {fileID: 1756392969}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21bc4a6a142033147a3d383d861493cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1800867828
 PrefabInstance:
   m_ObjectHideFlags: 0

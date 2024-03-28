@@ -8,7 +8,7 @@ public class WeaponMisc : MonoBehaviour {
 
     public WeaponData GetWeaponByIndex(int index)
     {
-        if (index >= 0 && index < weaponsList.Count)
+        if (index is >= 0 && index < weaponsList.Count)
         {
             return weaponsList[index];
         }
@@ -31,7 +31,7 @@ public class WeaponMisc : MonoBehaviour {
         StartCoroutine(DestroyAfterDelay(CurrInstance, 3));
     }
 
-    System.Collections.IEnumerator DestroyAfterDelay(Component obj, float delay) {
+    private System.Collections.IEnumerator DestroyAfterDelay(Component obj, float delay) {
         yield return new WaitForSeconds(delay);
         Destroy(obj.gameObject);
     }
